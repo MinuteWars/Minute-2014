@@ -1,0 +1,58 @@
+/*
+|--------------------------------------------------------------------------
+| Minute Wars Map Editor
+|--------------------------------------------------------------------------
+|
+| The Stylesheet for the backend editor
+|
+*/
+#the-map-editor-wrap {
+  border: 1px solid #dfdfdf;
+  overflow: auto;
+  padding: 16px; }
+
+#the-map-editor {
+  margin: auto;
+  border: 2px solid #777;
+  border-radius: 4px; }
+  #the-map-editor .tile {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    float: left;
+    cursor: crosshair;
+    background-image: url(../../../../img/tilesets/default/normal.png); }
+    #the-map-editor .tile:hover {
+      border: 1px solid red; }
+
+#the-map-editor-brushes a {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: url(../../../../img/tilesets/default/normal.png);
+  display: inline-block;
+  height: 32px;
+  width: 32px; }
+  #the-map-editor-brushes a:hover, #the-map-editor-brushes a.selected {
+    border: 1px solid red; }
+
+/*==============================================
+| Tile Types
+=================================================*/
+#the-map-editor .grass, #the-map-editor-brushes .grass {
+  background-position: 0 0; }
+#the-map-editor .grass-tree, #the-map-editor-brushes .grass-tree {
+  background-position: -32px 0; }
