@@ -54,9 +54,23 @@
 =================================================*/
 #the-map-editor .grass, #the-map-editor-brushes .grass {
   background-position: 0 0; }
-#the-map-editor .grass-tree, #the-map-editor-brushes .grass-tree {
-  background-position: -32px 0; }
-#the-map-editor .grass-with-tree-shadow, #the-map-editor-brushes .grass-with-tree-shadow {
+#the-map-editor .grass-with-shadow, #the-map-editor-brushes .grass-with-shadow {
   background-position: -64px 0; }
-#the-map-editor .grass-tree-with-tree-shadow, #the-map-editor-brushes .grass-tree-with-tree-shadow {
+#the-map-editor .grass-with-peak, #the-map-editor-brushes .grass-with-peak {
+  background-position: -96px 0; }
+#the-map-editor .grass-with-peak-and-shadow, #the-map-editor-brushes .grass-with-peak-and-shadow {
+  background-position: -64px -32px; }
+#the-map-editor .tree, #the-map-editor-brushes .tree {
+  background-position: -32px 0; }
+#the-map-editor .tree-with-shadow, #the-map-editor-brushes .tree-with-shadow {
   background-position: -32px -32px; }
+#the-map-editor .tree-with-peak, #the-map-editor-brushes .tree-with-peak {
+  background-position: -32px -64px; }
+#the-map-editor .mountain, #the-map-editor-brushes .mountain {
+  background-position: -96px -64px; }
+#the-map-editor .mountain-with-peak, #the-map-editor-brushes .mountain-with-peak {
+  background-position: -96px -32px; }
+#the-map-editor .mountain-small, #the-map-editor-brushes .mountain-small {
+  background-position: -96px -96px; }
+#the-map-editor .mountain-small-with-peak, #the-map-editor-brushes .mountain-small-with-peak {
+  background-position: -96px -128px; }

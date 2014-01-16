@@ -102,7 +102,8 @@ class acf_field_map_editor extends acf_field
                 </div>
                 <menu id="the-map-editor-brushes">
                     <a href="#" class="grass selected"></a>
-                    <a href="#" class="grass-tree"></a>
+                    <a href="#" class="tree"></a>
+                    <a href="#" class="mountain"></a>
                 </menu>
                 <?php
         }

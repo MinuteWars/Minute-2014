@@ -72,7 +72,16 @@
 =================================================*/
 #the-map-editor, #the-map-editor-brushes{
     .grass{background-position: 0 0;}
-    .grass-tree{background-position: -32px 0;}
-    .grass-with-tree-shadow{background-position: -64px 0;}
-    .grass-tree-with-tree-shadow{background-position: -32px -32px;}
+    .grass-with-shadow{background-position: -64px 0;}
+    .grass-with-peak{background-position: -96px 0;}
+    .grass-with-peak-and-shadow{background-position: -64px -32px;}
+
+    .tree{background-position: -32px 0;}
+    .tree-with-shadow{background-position: -32px -32px;}
+    .tree-with-peak{background-position: -32px -64px;}
+
+    .mountain{background-position: -96px -64px;}
+    .mountain-with-peak{background-position: -96px -32px;}
+    .mountain-small{background-position: -96px -96px;}
+    .mountain-small-with-peak{background-position: -96px -128px;}
 }
