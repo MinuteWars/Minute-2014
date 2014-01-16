@@ -123,7 +123,8 @@ class acf_field_map_editor extends acf_field
         function input_admin_enqueue_scripts()
         {
                 // Note: This function can be removed if not used
-                wp_enqueue_script('acf-input-map_editor', $this->settings['dir'] . 'js/map-editor.js', array('jquery'), $this->settings['version'], true);
+                wp_enqueue_script('underscore');
+                wp_enqueue_script('acf-input-map_editor', $this->settings['dir'] . 'js/map-editor.js', array('underscore'), $this->settings['version'], true);
                 wp_enqueue_style('acf-input-map_editor', $this->settings['dir'] . 'css/map-editor.css', null, $this->settings['version']);
         }
 

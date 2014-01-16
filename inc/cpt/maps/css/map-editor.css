@@ -56,3 +56,7 @@
   background-position: 0 0; }
 #the-map-editor .grass-tree, #the-map-editor-brushes .grass-tree {
   background-position: -32px 0; }
+#the-map-editor .grass-with-tree-shadow, #the-map-editor-brushes .grass-with-tree-shadow {
+  background-position: -64px 0; }
+#the-map-editor .grass-tree-with-tree-shadow, #the-map-editor-brushes .grass-tree-with-tree-shadow {
+  background-position: -32px -32px; }

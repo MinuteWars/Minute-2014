@@ -12,6 +12,7 @@ jQuery(function($){
     var $mapHeight = $('#acf-field-map_height');
     var $fog = $('#acf-field-fog_of_war-1');
     var $tiles = null;
+    var tile = [];  //Contains references to the tiles
     var $brushes = $('#the-map-editor-brushes a');
     var currentBrush = 'grass';
     var mapWidth = 15;
@@ -41,8 +42,8 @@ jQuery(function($){
     */
     function updateMapDimensions(){
         var x, y;
-        mapWidth = $mapWidth.val();
-        mapHeight = $mapHeight.val();
+        mapWidth = parseInt($mapWidth.val());
+        mapHeight = parseInt($mapHeight.val());
 
         // Exit if invalid size
         if(!mapWidth || mapWidth < 10 || mapWidth > 30 ||
@@ -55,9 +56,15 @@ jQuery(function($){
         //- - - - - - - - - - - - - - - - - - - - - - - -
         // Add the tiles and rebind events
         //- - - - - - - - - - - - - - - - - - - - - - - -
-        for(x = 0; x < mapWidth; x++){
-            for(y = 0; y < mapHeight; y++){
+        for(x = 0; x < mapWidth; x++)
+            tile[x] = [];
+
+        for(y = 0; y < mapHeight; y++){
+            for(x = 0; x < mapWidth; x++){
                 $editor.append('<div class="tile grass"></div>');
+                tile[x][y] = $('.tile', $editor).last();
+                tile[x][y].data('coord', {x: x, y: y})
+                    .data('tile', 'grass');
             }
         }
         $tiles = $('.tile', $editor);
@@ -82,11 +89,43 @@ jQuery(function($){
     |
     | TODO: Add touch support
     |
+    | $this:    Tile to change
+    | changeTo: brush-class to force change to
     */
-    function changeTile($this){
+    function changeTile($this, changeTo){
         if(!mousedown) return;
-        $this.attr('class', 'tile').addClass(currentBrush);
-        console.log($this.attr('class'));
+        var x = $this.data('coord').x;
+        var y = $this.data('coord').y;
+        
+        //###############################################
+        // Set update surrounding tiles to reflect this one
+        //###############################################
+        if(!changeTo){
+            changeTo = currentBrush;
+            switch(changeTo){
+                case 'grass':
+                    if(x+1 != mapWidth){
+                        if(tile[x+1][y].data('tile') == 'grass-tree-with-tree-shadow') changeTile(tile[x+1][y], 'grass-tree');
+                        if(tile[x+1][y].data('tile') == 'grass-with-tree-shadow') changeTile(tile[x+1][y], 'grass');
+                    }
+                    if(x > 0){
+                        if(_.indexOf(['grass-tree', 'grass-tree-with-tree-shadow'], tile[x-1][y].data('tile')) != -1) changeTo = 'grass-with-tree-shadow';
+                    }
+                break;
+
+                case 'grass-tree':
+                    if(x+1 != mapWidth){
+                        if(tile[x+1][y].data('tile') == 'grass') changeTile(tile[x+1][y], 'grass-with-tree-shadow');
+                        if(tile[x+1][y].data('tile') == 'grass-tree') changeTile(tile[x+1][y], 'grass-tree-with-tree-shadow');
+                    }
+                    if(x > 0){
+                        if(_.indexOf(['grass-tree', 'grass-tree-with-tree-shadow'], tile[x-1][y].data('tile')) != -1) changeTo = 'grass-tree-with-tree-shadow';
+                    }
+                break;
+            }
+        }
+        $this.attr('class', 'tile').addClass(changeTo)
+            .data('tile', changeTo);
     }
 
     /*
@@ -98,7 +137,6 @@ jQuery(function($){
         var $this = $(this);
         $brushes.removeClass('selected');
         currentBrush = $this.attr('class');
-        console.log(currentBrush);
         $this.addClass('selected');
         return false;
     });

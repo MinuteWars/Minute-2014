@@ -72,5 +72,7 @@
 =================================================*/
 #the-map-editor, #the-map-editor-brushes{
     .grass{background-position: 0 0;}
-    .grass-tree{background-position: -32px 0;}    
+    .grass-tree{background-position: -32px 0;}
+    .grass-with-tree-shadow{background-position: -64px 0;}
+    .grass-tree-with-tree-shadow{background-position: -32px -32px;}
 }
