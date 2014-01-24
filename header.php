@@ -13,7 +13,8 @@
     <link href="<?= get_template_directory_uri() ?>/style.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400' rel='stylesheet' type='text/css'>
     <?php wp_head(); ?>
-
-    <?php js('required') ?>
-    <?php js('global', 'required') ?>
 </head>
+<body <?php body_class() ?>>
+    <section class="hero">
+        <h1><?= img('logo.png') ?> Minute<b>Wars</b> <sub>devlog</sub></h1>
+    </section>

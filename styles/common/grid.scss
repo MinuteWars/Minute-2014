@@ -1,0 +1,85 @@
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Variables
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+$full:      960px;
+$gutter:    20px;
+
+//- - - - - - - - - - - - - - - - - - - - - - - -
+// .c*  = Fully Responsive
+// .sc* = Static-Responsive (they don't stack and therefor behave like tables)
+//- - - - - - - - - - - - - - - - - - - - - - - -
+section,
+.c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12 {
+    @extend .box-sizing;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
+.c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12 {
+    display: inline-block;
+    padding: 0 $gutter / 2;
+    &.bottom{vertical-align: bottom;}
+    img{max-width: 100%}
+}
+
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Special
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+section{
+    width: $full;
+    clear: both;
+    padding: $gutter;
+    margin: $gutter*2 auto;
+    list-style: none;
+
+    &.padless{
+        .c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12 {
+            padding: 0;
+        }
+    }   
+}
+
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Columns
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.c2 {width: percentage( 2/12)}
+.c3 {width: percentage( 3/12)}
+.c4 {width: percentage( 4/12)}
+.c5 {width: percentage( 5/12)}
+.c6 {width: percentage( 6/12)}
+.c7 {width: percentage( 7/12)}
+.c8 {width: percentage( 8/12)}
+.c9 {width: percentage( 9/12)}
+.c10 {width: percentage( 10/12)}
+.c11 {width: percentage( 11/12)}
+.c12 {width: percentage( 12/12)}
+
+
+
+//###############################################
+// Responsive
+//###############################################
+//- - - - - - - - - - - - - - - - - - - - - - - -
+// Large Desktops
+//- - - - - - - - - - - - - - - - - - - - - - - -
+@media only screen and (max-width: $full + $gutter*2) {
+    section, .c12{
+        width: 100%;
+        padding-left: $gutter;
+        padding-right: $gutter;
+    }
+}
+
+//- - - - - - - - - - - - - - - - - - - - - - - -
+// Desktop and Tablets
+//- - - - - - - - - - - - - - - - - - - - - - - -
+@media only screen and (max-width: 800px) {
+    .c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12{width: 50%;}
+}
+//- - - - - - - - - - - - - - - - - - - - - - - -
+// Small devices
+//- - - - - - - - - - - - - - - - - - - - - - - -
+@media only screen and (max-width: 600px) {
+    .c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12{width: 100%;}
+}

@@ -18,3 +18,19 @@ THEME NAME:     Minute-2014
 VERSION:        0.0.0
 DESCRIPTION:    The Minute Wars engine started in 2014
 */
+@import 'styles/common';
+
+body.home h1{
+    img{
+        vertical-align: middle;
+        margin-right: 20px;
+    }
+}
+
+.hero{
+    margin-top: 0 !important;
+}
+.meta{
+    border-left: 4px solid #ccc;
+    padding-left: 20px;
+}
